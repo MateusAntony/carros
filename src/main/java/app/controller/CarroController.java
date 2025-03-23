@@ -58,7 +58,7 @@ public class CarroController {
         }
     }
 
-    @GetMapping("/findById")
+    @GetMapping("/findById/{id}")
     public ResponseEntity<Carro> findById(@PathVariable long id){
         try {
             Carro carro = this.service.findById(id);

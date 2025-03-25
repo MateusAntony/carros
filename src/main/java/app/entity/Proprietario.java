@@ -31,6 +31,7 @@ public class Proprietario {
 
     @ManyToMany(mappedBy = "proprietarios")
     @JsonBackReference
+    @JsonProperty("carros")
     private List<Carro> carros;
 
     public void setId(long id) {

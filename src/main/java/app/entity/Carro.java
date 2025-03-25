@@ -1,6 +1,7 @@
 package app.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -32,7 +33,8 @@ public class Carro {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "marca_id")
-    @JsonManagedReference
+    @JsonProperty("marca")
+    @JsonIgnoreProperties("marca")
     private Marca marca;
 
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
@@ -41,7 +43,8 @@ public class Carro {
             joinColumns = @JoinColumn(name = "carro_id"),
             inverseJoinColumns = @JoinColumn(name = "proprietario_id")
     )
-    @JsonManagedReference
+    @JsonIgnoreProperties("proprietarios")
+    @JsonProperty("proprietarios")
     private List<Proprietario> proprietarios;
 
 

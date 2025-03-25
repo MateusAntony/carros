@@ -22,7 +22,7 @@ public class Marca {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @JsonProperty("name")
+    @JsonProperty("nome")
     private String nome;
 
     @JsonProperty("cnpj")
@@ -30,6 +30,7 @@ public class Marca {
 
     @OneToMany(mappedBy = "marca",cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference
+    @JsonProperty("carros")
     private List<Carro> carros;
 
 

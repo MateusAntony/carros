@@ -2,6 +2,7 @@ package app.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,9 +21,11 @@ public class Marca {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty("id")
     private long id;
 
     @JsonProperty("nome")
+    @NotBlank(message = "Nome da marca é obrigatório")
     private String nome;
 
     @JsonProperty("cnpj")
@@ -33,9 +36,7 @@ public class Marca {
     @JsonProperty("carros")
     private List<Carro> carros;
 
-
     public void setId(long id) {
         this.id = id;
     }
-
 }

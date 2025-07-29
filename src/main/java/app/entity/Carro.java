@@ -37,19 +37,8 @@ public class Carro {
     @JsonIgnoreProperties("marca")
     private Marca marca;
 
-    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "carro_proprietario",
-            joinColumns = @JoinColumn(name = "carro_id"),
-            inverseJoinColumns = @JoinColumn(name = "proprietario_id")
-    )
-    @JsonIgnoreProperties("proprietarios")
-    @JsonProperty("proprietarios")
-    private List<Proprietario> proprietarios;
-
 
     public void setId(long id) {
         this.id = id;
     }
-
 }

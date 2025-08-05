@@ -28,9 +28,6 @@ public class Marca {
     @NotBlank(message = "Nome da marca é obrigatório")
     private String nome;
 
-    @JsonProperty("cnpj")
-    private String cnpj;
-
     @OneToMany(mappedBy = "marca",cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonBackReference
     @JsonProperty("carros")

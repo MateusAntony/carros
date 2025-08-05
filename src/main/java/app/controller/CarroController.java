@@ -20,12 +20,13 @@ public class CarroController {
     private CarroService service;
 
     @PostMapping("/save")
-    public ResponseEntity<String> save(@RequestBody Carro carro){
+    public ResponseEntity<String> save(@RequestBody Carro carro) {
         try {
             String mensagem = this.service.save(carro);
-            return new ResponseEntity<>(mensagem,HttpStatus.CREATED);
+            return new ResponseEntity<>(mensagem, HttpStatus.CREATED);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            // Retorna a mensagem de erro no corpo da resposta
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 

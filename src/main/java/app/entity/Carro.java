@@ -31,7 +31,7 @@ public class Carro {
     @JsonProperty("ano")
     private Integer ano;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "marca_id")
     @JsonProperty("marca")
     @JsonIgnoreProperties("marca")
